@@ -51,7 +51,11 @@ def crear_graficos_pesos(pesos_con_promedios, metricas_a_graficar, colores_metri
 
         pesos_con_promedios.plot(y=f"{metrica}_promedios", style="--", ax=axis[i])
 
-    plt.show()
+    fecha_inicial = pesos_con_promedios.iloc[0].name.date()
+    fecha_final = pesos_con_promedios.iloc[-1].name.date()
+
+    fig.suptitle(f"Resumen de Pesos entre {fecha_inicial} a {fecha_final}")
     plt.tight_layout()
+    plt.show()
 
     return fig
