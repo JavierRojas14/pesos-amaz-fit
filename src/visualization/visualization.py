@@ -15,9 +15,9 @@ def obtener_resumen_mes_por_semana(promedios_por_semana):
     return resumen
 
 
-def crear_graficos_pesos(pesos_con_promedios, METRICAS_RELEVANTES, COLORES_METRICAS):
+def crear_graficos_pesos(pesos_con_promedios, metricas_a_graficar, colores_metricas):
     fig, axis = plt.subplots(1, 3, figsize=(20, 6))
-    for i, metrica in enumerate(METRICAS_RELEVANTES):
+    for i, metrica in enumerate(metricas_a_graficar):
         # Plot the first and last points
         first_point = pesos_con_promedios[metrica].iloc[0]
         last_point = pesos_con_promedios[metrica].iloc[-1]
@@ -46,7 +46,7 @@ def crear_graficos_pesos(pesos_con_promedios, METRICAS_RELEVANTES, COLORES_METRI
             y=metrica,
             ax=axis[i],
             title=f"{metrica} - Dif: {diferencia:.2f}",
-            color=COLORES_METRICAS[i],
+            color=colores_metricas[i],
         )
 
         pesos_con_promedios.plot(y=f"{metrica}_promedios", style="--", ax=axis[i])
