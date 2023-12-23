@@ -18,3 +18,5 @@ def leer_y_formatear_pesos_amaz_fit():
     df["time"] = pd.to_datetime(df["time"])
     df["week"] = df["time"].dt.isocalendar().week
     df["nombre_dia"] = df["time"].dt.day_name("es_MX")
+    
+    return df
